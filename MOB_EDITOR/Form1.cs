@@ -20,16 +20,11 @@ namespace MOB_EDITOR
             InitializeComponent();
         }
 
-        // Atributos
-        //public List<NPC> npcs { get; private set; }
-
-        //DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\Imobiliaria_2\Downloads\Desenvolvimento\Build\TMSrv\run\npc");
-
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                this.ReadNpc();//F10
+                this.ReadNpc();
                 this.ReadItemList();
             }
             catch
@@ -42,10 +37,6 @@ namespace MOB_EDITOR
         {
             try
             {
-
-                // string valor = Convert.ToString(Marshal.SizeOf(STRUCT_MOB));
-                //int size = Sizeof<STRUCT_MOB>();
-                // MessageBox.Show(Convert.ToString(size));
                 Editor.ReadNpc();
                 foreach (STRUCT_MOB MOB in Editor.NPCs)
                 {

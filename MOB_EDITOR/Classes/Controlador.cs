@@ -7,8 +7,6 @@ public static class Editor
 {
     public static List<STRUCT_MOB> NPCs = new List<STRUCT_MOB>();
     public static sITEMLIST ItemList = new sITEMLIST();
-    //vc ja tem uma variavel com todos os 6500 itens, nao precisa de uma lista =)
-
 
     public static void ReadNpc()
     {

@@ -4,42 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-/*
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct sSelectChar
-    {
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        Int32[] PosX;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        Int32[] PosY;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        sNomeDoChar[] Nome;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        sScore[] Score;
-    
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        sEquipesCharList[] Equipes;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        UInt16[] Guild;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        Int32[] Gold;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        Int64[] Exp;
-    };
-*/
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct sITEMLIST
-{//vc tem uma estrutura com todos os 6500 itens, correot? Sim
+{
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6500)]
     public STRUCT_ITEMLIST[] item;
-    //faltou os 4 bytes de check ( ou 8 ), se for salvar uma itemlist, da BO
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
