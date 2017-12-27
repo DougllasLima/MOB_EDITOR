@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 
 public static class Editor
 {
+    public static List<STRUCT_MOB> MOBs = new List<STRUCT_MOB>();
     public static List<STRUCT_MOB> NPCs = new List<STRUCT_MOB>();
     public static sITEMLIST ItemList = new sITEMLIST();
 
@@ -20,7 +21,16 @@ public static class Editor
             {
                 Byte[] data = File.ReadAllBytes(fileName);
                 STRUCT_MOB pMob = (STRUCT_MOB)Marshal.PtrToStructure(Marshal.UnsafeAddrOfPinnedArrayElement(data, 0), typeof(STRUCT_MOB));
-                Editor.NPCs.Add(pMob);
+                STRUCT_MOB pNpc = (STRUCT_MOB)Marshal.PtrToStructure(Marshal.UnsafeAddrOfPinnedArrayElement(data, 0), typeof(STRUCT_MOB));
+
+                if (pMob.Merchant == 0)
+                {
+                    Editor.MOBs.Add(pMob);
+                }
+                if(pMob.Merchant != 0)
+                {
+                    Editor.NPCs.Add(pNpc);
+                }
             }
         }
         catch (Exception ex)
