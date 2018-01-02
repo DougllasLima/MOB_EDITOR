@@ -508,6 +508,11 @@
             this.textBox303 = new System.Windows.Forms.TextBox();
             this.label111 = new System.Windows.Forms.Label();
             this.label112 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.gerarDropListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerarArquivoTxTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.Equips.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -519,6 +524,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.gbEquipes.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -2677,7 +2683,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(2, 3);
+            this.tabControl1.Location = new System.Drawing.Point(1, 20);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1247, 758);
@@ -4869,16 +4875,43 @@
             this.label112.TabIndex = 41;
             this.label112.Text = "Brincos:";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gerarDropListToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1248, 24);
+            this.menuStrip1.TabIndex = 42;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // gerarDropListToolStripMenuItem
+            // 
+            this.gerarDropListToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gerarArquivoTxTToolStripMenuItem});
+            this.gerarDropListToolStripMenuItem.Name = "gerarDropListToolStripMenuItem";
+            this.gerarDropListToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.gerarDropListToolStripMenuItem.Text = "DropList";
+            // 
+            // gerarArquivoTxTToolStripMenuItem
+            // 
+            this.gerarArquivoTxTToolStripMenuItem.Name = "gerarArquivoTxTToolStripMenuItem";
+            this.gerarArquivoTxTToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gerarArquivoTxTToolStripMenuItem.Text = "Gerar DropList";
+            this.gerarArquivoTxTToolStripMenuItem.Click += new System.EventHandler(this.gerarArquivoTxTToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1141, 750);
+            this.ClientSize = new System.Drawing.Size(1141, 746);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Editor";
@@ -4904,7 +4937,10 @@
             this.groupBox5.PerformLayout();
             this.gbEquipes.ResumeLayout(false);
             this.gbEquipes.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -5389,6 +5425,11 @@
         private System.Windows.Forms.Label label111;
         private System.Windows.Forms.Label label112;
         private System.Windows.Forms.TextBox textBox248;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem gerarDropListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerarArquivoTxTToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 
