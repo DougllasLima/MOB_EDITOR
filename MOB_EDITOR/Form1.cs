@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
+using System.Collections.Generic;
 
 namespace MOB_EDITOR
 {
@@ -255,7 +257,6 @@ namespace MOB_EDITOR
             itemName.Text = Editor.ItemList.item[Editor.MOBs[lbNpc.SelectedIndex].Carry[textBox.TabIndex].sIndex].Name;
         }
 
-
         // Controle de NPC's
         private void lbNpc2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -444,6 +445,57 @@ namespace MOB_EDITOR
             Editor.NPCs[lbNpc2.SelectedIndex].Carry[textBox.TabIndex].sIndex = Convert.ToInt16(textBox.Text.Split(' ')[0]);
 
             itemName.Text = Editor.ItemList.item[Editor.NPCs[lbNpc2.SelectedIndex].Carry[textBox.TabIndex].sIndex].Name;
+        }
+      
+        private void gerarArquivoTxTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter sw = new StreamWriter("DropList.txt"); // Gera o dropList no mesmo local do programa 
+            List<string> DropList = new List<string>();
+            try
+            {
+                foreach (STRUCT_MOB MOB in Editor.MOBs)
+                {
+                    List<string> Drop = new List<string>();
+
+                    int value = 0;
+
+                    Drop.Add(String.Format("MOB: {0} \r\n\r\n", MOB.name));
+
+                    for (int i = 0; i < 64; i++)
+                    {
+                        if (MOB.Carry[i].sIndex <= 0 || MOB.Carry[i].sIndex > 6500)
+                            continue;
+
+                        if (value == 0)
+                            Drop.Add("DropList: ");
+
+                        if (value > 0)
+                            Drop.Add(",");
+
+                        if (value == 8 || value == 15 || value == 22 || value == 29 || value == 36 || value == 43 || value == 50 || value == 57)
+                            Drop.Add("\r\n");
+
+                        Drop.Add(String.Format("{0}", Editor.ItemList.item[MOB.Carry[i].sIndex].Name));
+                        value++;
+                    }
+
+                    if (value > 0)
+                    {
+                        Drop.Add("\r\n\r\n\r\n");
+                        DropList.AddRange(Drop);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            foreach (string value in DropList)
+                sw.Write(value);
+
+            sw.Close();
+            MessageBox.Show("DropList gerado com sucesso!");
         }
     }
 }
