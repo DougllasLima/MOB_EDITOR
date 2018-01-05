@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs/MOB_EDITOR
+/MOB_EDITOR/bin/Debug/npc
+/MOB_EDITOR/bin/Debug
+/MOB_EDITOR/bin/Release
+/MOB_EDITOR/bin/ItemCSum.h
+/MOB_EDITOR/obj/Debug/TempPE
+/MOB_EDITOR/obj/Debug
+/MOB_EDITOR/obj/Release/TempPE
+/MOB_EDITOR/obj/Release
+/MOB_EDITOR/MOB_EDITOR.csproj.user
+/MOB_EDITOR.v12.suo
+/MOB_EDITOR.VC.db

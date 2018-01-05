@@ -451,7 +451,7 @@ namespace MOB_EDITOR
 
             itemName.Text = Editor.ItemList.item[Editor.NPCs[lbNpc2.SelectedIndex].Carry[textBox.TabIndex].sIndex].Name;
         }
-      
+
         // Gerar DropList
         private void gerarArquivoTxTToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -465,25 +465,25 @@ namespace MOB_EDITOR
 
                     int value = 0;
 
-                    Drop.Add(String.Format("MOB: {0},", MOB.name));
+                    Drop.Add(String.Format("MOB: {0} \r\n\r\n", MOB.name));
 
                     for (int i = 0; i < 64; i++)
                     {
                         if (MOB.Carry[i].sIndex <= 0 || MOB.Carry[i].sIndex > 6500)
                             continue;
 
+                        if (value == 0)
+                            Drop.Add("DropList: ");
+
                         if (value > 0)
                             Drop.Add(",");
+
+                        if (value == 8 || value == 15 || value == 22 || value == 29 || value == 36 || value == 43 || value == 50 || value == 57)
+                            Drop.Add("\r\n");
 
                         Drop.Add(String.Format("{0}", Editor.ItemList.item[MOB.Carry[i].sIndex].Name));
                         value++;
                     }
-
-                    if (value > 0)
-                        Drop.Add(",");
-
-                    Drop.Add(String.Format("{0},", MOB.BaseScore.Ataque));
-                    Drop.Add(String.Format("{0}", MOB.BaseScore.Defesa));
 
                     if (value > 0)
                     {
