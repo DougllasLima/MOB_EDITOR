@@ -511,6 +511,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gerarDropListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerarArquivoTxTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.apagarItemGlobalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.Equips.SuspendLayout();
@@ -4878,7 +4880,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gerarDropListToolStripMenuItem});
+            this.gerarDropListToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1248, 24);
@@ -4896,9 +4899,24 @@
             // gerarArquivoTxTToolStripMenuItem
             // 
             this.gerarArquivoTxTToolStripMenuItem.Name = "gerarArquivoTxTToolStripMenuItem";
-            this.gerarArquivoTxTToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gerarArquivoTxTToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.gerarArquivoTxTToolStripMenuItem.Text = "Gerar DropList";
             this.gerarArquivoTxTToolStripMenuItem.Click += new System.EventHandler(this.gerarArquivoTxTToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.apagarItemGlobalToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(123, 20);
+            this.toolStripMenuItem1.Text = "Localizador de Itens";
+            // 
+            // apagarItemGlobalToolStripMenuItem
+            // 
+            this.apagarItemGlobalToolStripMenuItem.Name = "apagarItemGlobalToolStripMenuItem";
+            this.apagarItemGlobalToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.apagarItemGlobalToolStripMenuItem.Text = "Localizador de Itens";
+            this.apagarItemGlobalToolStripMenuItem.Click += new System.EventHandler(this.LocalizadorToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -4906,7 +4924,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1141, 746);
+            this.ClientSize = new System.Drawing.Size(1175, 763);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -5430,6 +5448,8 @@
         private System.Windows.Forms.ToolStripMenuItem gerarArquivoTxTToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem apagarItemGlobalToolStripMenuItem;
     }
 }
 

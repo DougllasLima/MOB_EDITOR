@@ -66,9 +66,13 @@ namespace MOB_EDITOR
             }
         }
 
+        // Controle de MOB's
         private void lbNpc_SelectedIndexChanged(object sender, EventArgs e)
         {
             var index = lbNpc.SelectedIndex;
+
+            if (index < 0)
+                return;
 
             // Informações do MOB
             txtNome.Text = Editor.MOBs[index].name.ToString();
@@ -144,7 +148,7 @@ namespace MOB_EDITOR
             }
         }
 
-        // Botão de salvar
+        // Botão de salvar as informações do MOB
         private void button1_Click(object sender, EventArgs e)
         {
             //           Salvar informações do MOB
@@ -336,9 +340,10 @@ namespace MOB_EDITOR
             }
         }
 
+        // Botão de salvar as informações do NPC
         private void button2_Click(object sender, EventArgs e)
         {
-            // Salvar informações do MOB
+            // Salvar informações do NPC
             if (lbNpc2.SelectedIndex > 0)
             {
                 STRUCT_MOB npc = Editor.NPCs[lbNpc2.SelectedIndex];
@@ -447,6 +452,7 @@ namespace MOB_EDITOR
             itemName.Text = Editor.ItemList.item[Editor.NPCs[lbNpc2.SelectedIndex].Carry[textBox.TabIndex].sIndex].Name;
         }
       
+        // Gerar DropList
         private void gerarArquivoTxTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamWriter sw = new StreamWriter("DropList.txt"); // Gera o dropList no mesmo local do programa 
@@ -459,25 +465,25 @@ namespace MOB_EDITOR
 
                     int value = 0;
 
-                    Drop.Add(String.Format("MOB: {0} \r\n\r\n", MOB.name));
+                    Drop.Add(String.Format("MOB: {0},", MOB.name));
 
                     for (int i = 0; i < 64; i++)
                     {
                         if (MOB.Carry[i].sIndex <= 0 || MOB.Carry[i].sIndex > 6500)
                             continue;
 
-                        if (value == 0)
-                            Drop.Add("DropList: ");
-
                         if (value > 0)
                             Drop.Add(",");
-
-                        if (value == 8 || value == 15 || value == 22 || value == 29 || value == 36 || value == 43 || value == 50 || value == 57)
-                            Drop.Add("\r\n");
 
                         Drop.Add(String.Format("{0}", Editor.ItemList.item[MOB.Carry[i].sIndex].Name));
                         value++;
                     }
+
+                    if (value > 0)
+                        Drop.Add(",");
+
+                    Drop.Add(String.Format("{0},", MOB.BaseScore.Ataque));
+                    Drop.Add(String.Format("{0}", MOB.BaseScore.Defesa));
 
                     if (value > 0)
                     {
@@ -496,6 +502,13 @@ namespace MOB_EDITOR
 
             sw.Close();
             MessageBox.Show("DropList gerado com sucesso!");
+        }
+
+        // Abrir form para localizar itens dos MOB's
+        private void LocalizadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Localizador localizador = new Localizador(this);
+            localizador.ShowDialog();
         }
     }
 }
